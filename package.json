@@ -1,0 +1,23 @@
+{
+  "name": "visualsort",
+  "version": "1.0.0",
+  "description": "This is a visual sorting program written in HTML, CSS, and JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miszion/VisualSort.git"
+  },
+  "author": "Mission Marcus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Miszion/VisualSort/issues"
+  },
+  "homepage": "https://github.com/Miszion/VisualSort#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-scripts": "^4.0.3"
+  }
+}
