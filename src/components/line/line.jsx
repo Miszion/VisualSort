@@ -3,10 +3,10 @@ import './line.scss'
 
 const Line = (props) => {
 
-    const {color, height} = props
+    const { line } = props
 
     return (
-        <div className='line' style={{color: color, height: height}}></div>
+        <div className='line' style={{backgroundColor: line.color, height: line.height}}></div>
     )
 }
 
