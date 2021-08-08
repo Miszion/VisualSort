@@ -13,7 +13,7 @@ const Header = (props) => {
                 <Button title="Selection Sort" onClick={async () => {selectionSort(array, setArray, isSorted, setSorted )}}></Button>
                 <Button title="Clear" onClick={() => {generateLines(50, '#20232A', setArray, setSorted)}}></Button>
                 <Button title="Insertion Sort" onClick={() => {insertionSort(array, setArray, isSorted, setSorted)}}></Button>
-                <Button title="Merge Sort" onClick={() => {mergeSort(array, setArray, 0, array.length - 1, isSorted, setSorted)}}></Button>
+                <Button title="Merge Sort" onClick={() => {mergeSort(array, setArray, isSorted, setSorted, 50)}}></Button>
             </div>
         </div>
     )

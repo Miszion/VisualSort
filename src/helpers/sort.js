@@ -47,72 +47,37 @@ export const insertionSort = (array, setArray, isSorted, setSorted) => {
 
 }
 
-export const merge = (array, setArray, left, middle, right) => {
+export const merge = (setArray, left, right) => {
 
-    let i, j, k;
+   let arr = []
 
-    let n1 = middle - left + 1;
-    let n2 = right - middle;
+   while (left.length && right.length) {
 
-    let leftArray = []
-    let rightArray = []
-
-    for (i = 0; i < n1; ++i) {
-        leftArray.push(array[left + i])
-    }
-    for (j = 0; j < n2; ++j) {
-        rightArray.push(array[middle + 1 + j])
-    }
-
-    i = 0;
-    j = 0;
-    k = left;
-
-    while (i < n1 && j < n2) {
-        if (leftArray[i].length <= rightArray[j].length) {
-            array[k] = leftArray[i]
-            i++;
+        if (left[0].height < right[0].height) {
+            arr.push(left.shift())
         }
         else {
-            array[k] = rightArray[j]
-            j++;
+            arr.push(right.shift())
         }
-        k++;
-    }
+        
+   }
 
-    while (i < n1) {
-        array[k] = leftArray[i]
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        array[k] = rightArray[j]
-        j++;
-        k++;
-    }
-
-    setArray([...array])
-
+   return [...arr, ...left, ...right]
 
 }
 
-export const mergeSort = (array, setArray, left, right, isSorted, setSorted) => {
+export const mergeSort = (array, setArray, isSorted, setSorted) => {
 
     if (!isSorted) {
-        
-        if (left < right) {
+      const middle = array.length / 2
 
-            let middle = (left + right) / 2
+      if (array.length < 2) {
+          return array
+      }
 
-            mergeSort(array, setArray, left, middle, isSorted, setSorted)
-            mergeSort(array, setArray, middle + 1, right, isSorted, setSorted)
-            merge(array, setArray, left, middle, right)
+      const left = array.splice(0, middle)
 
-        }
-
-        setArray([...array])
-
+      return merge(setArray, mergeSort(left, setArray, isSorted, setSorted), mergeSort(array, setArray, isSorted, setSorted))
 
     }
 
