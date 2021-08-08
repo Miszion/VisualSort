@@ -47,6 +47,77 @@ export const insertionSort = (array, setArray, isSorted, setSorted) => {
 
 }
 
+export const merge = (array, setArray, left, middle, right) => {
+
+    let i, j, k;
+
+    let n1 = middle - left + 1;
+    let n2 = right - middle;
+
+    let leftArray = []
+    let rightArray = []
+
+    for (i = 0; i < n1; ++i) {
+        leftArray.push(array[left + i])
+    }
+    for (j = 0; j < n2; ++j) {
+        rightArray.push(array[middle + 1 + j])
+    }
+
+    i = 0;
+    j = 0;
+    k = left;
+
+    while (i < n1 && j < n2) {
+        if (leftArray[i].length <= rightArray[j].length) {
+            array[k] = leftArray[i]
+            i++;
+        }
+        else {
+            array[k] = rightArray[j]
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        array[k] = leftArray[i]
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        array[k] = rightArray[j]
+        j++;
+        k++;
+    }
+
+    setArray([...array])
+
+
+}
+
+export const mergeSort = (array, setArray, left, right, isSorted, setSorted) => {
+
+    if (!isSorted) {
+        
+        if (left < right) {
+
+            let middle = (left + right) / 2
+
+            mergeSort(array, setArray, left, middle, isSorted, setSorted)
+            mergeSort(array, setArray, middle + 1, right, isSorted, setSorted)
+            merge(array, setArray, left, middle, right)
+
+        }
+
+        setArray([...array])
+
+
+    }
+
+}
+
 export const selectionSort = (array, setArray, isSorted, setSorted) => {
 
 
