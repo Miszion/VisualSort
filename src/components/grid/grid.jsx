@@ -1,5 +1,7 @@
 import './grid.scss'
+import React from 'react'
 import Line from '../line/line'
+
 const Grid = (props) => {
 
     const { array } = props
@@ -7,7 +9,7 @@ const Grid = (props) => {
     return (
         <div className='grid'>
             {array.map((e, i) => 
-                <Line line={e} key={i} ></Line>
+                <Line line={e} key={e.height}></Line>
             )}
         </div>
     )

@@ -7,17 +7,19 @@ import './App.scss'
 
 const App = (props) => {
 
-    const [array, setArray] = useState([])
+    let [array, setArray] = useState([])
+
+    let [isSorted, setSorted] = useState(false)
 
     useEffect(() => {
         if (array.length === 0) {
-            setArray(generateLines(50, '#434343'))
+            generateLines(50, '#20232A', setArray, setSorted)
         }
-    })
+    }, [])
 
     return (
         <div className='app'>
-            <Header array={array} setArray={setArray}></Header>
+            <Header array={array} setArray={setArray} isSorted={isSorted} setSorted={setSorted}></Header>
             <Grid array={array}></Grid>
         </div>
     )

@@ -1,4 +1,4 @@
-import Line from '../classes/Line'
+import Line from '../classes/line'
 
 
 const generateRandom = (range) => {
@@ -9,7 +9,7 @@ const generateRandom = (range) => {
 
 }
 
-export const generateLines = (range, startColor) => {
+export const generateLines = (range, startColor, setArray, setSorted) => {
 
     const array = []
     const lineArray = []
@@ -37,6 +37,7 @@ export const generateLines = (range, startColor) => {
         lineArray.push(newLine)
     }
 
-    return lineArray
+    setArray(lineArray)
+    setSorted(false)
 
 }
